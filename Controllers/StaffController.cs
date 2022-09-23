@@ -9,7 +9,7 @@ public class StaffController : Controller
 [HttpGet]
 public ActionResult Index()
         {
-            return Content("Đang xây dựng hihi");
+            return View();
         }
 
 [HttpGet]
