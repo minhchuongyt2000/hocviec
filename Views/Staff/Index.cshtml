@@ -1,0 +1,63 @@
+@model IEnumerable<hocviec.Models.nhanvien>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="display-4">Index</h1>
+<div class="container py-2">
+    <div class="row align-items-center">
+        <div class="col-3">
+            <a class="btn btn-success" onclick="showpopup('@Url.Action("Create","Staff",null,Context.Request.Scheme)','Create')">CREATE NEW</a>
+            <a class="btn fs-3" asp-action="ExportFileExcel" asp-controller="Staff" title="Export File Excells"><i class="fa-solid fa-file-export"></i></a>
+            </div>
+         <div class="col-8 me-2">
+            <div class="input-group">
+                <label class="input-group-text">Tìm Kiếm</label>
+                <input type="text" class="form-control offset-1" value="@ViewBag.keyword" id="searchkey" placeholder="nhập tên học địa chỉ người cần tìm"/>
+                <div class="form-group">
+                <select class="form-select offset-2" id="ViewOption">
+                </select>
+               
+                </div>
+            </div>
+         </div>
+    </div>
+</div>
+<hr />
+<div class="table-responsive">
+    <table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ten)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ngaysinh)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.sdt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.diachi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.chucvu)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+        <tbody id="view">
+        @await Html.PartialAsync("_viewall")
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="7" id="pagination">
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+</div>
