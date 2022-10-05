@@ -1,0 +1,58 @@
+@model Models.NhanVien
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = null;
+}
+<h4>Nhân Viên</h4>
+<hr />
+        <form asp-action="Create" onsubmit="return JqueryPost(this);" autocomplete="off" class="row g-3">
+            <div asp-validation-summary="ModelOnly" class="text-danger mt-2"></div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="name" class="control-label"></label>
+                        <input asp-for="name" class="form-control" name="Name" id="Name"/>
+                        <span asp-validation-for="name" class="text-danger mt-2"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                     <div class="form-group">
+                        <label asp-for="personposition" class="control-label"></label>
+                        <input asp-for="personposition" class="form-control" name="Personposition" id="Personposition"/>
+                        <span asp-validation-for="personposition" class="text-danger mt-2"></span>
+                     </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="birth" class="control-label"></label>
+                        <input asp-for="birth" class="form-control" name="Birth" id="Birth" />
+                        <span asp-validation-for="birth" class="text-danger mt-2"></span>
+                    </div>  
+                </div>
+               <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="phonenumber" class="control-label"></label>
+                        <input asp-for="phonenumber" class="form-control" name="Phonenumber" id="Phonenumber" />
+                        <span asp-validation-for="phonenumber" class="text-danger mt-2"></span>
+                    </div>
+                </div>
+            <div class="form-group">
+                <label asp-for="local" class="control-label"></label>
+                <input asp-for="local" class="form-control" name="Local" id="Local"/>
+                <span asp-validation-for="local" class="text-danger mt-2"></span>
+            </div>
+             <div class="form-group">
+                <label asp-for="phongban_id" class="control-label">Department</label>
+                  <select asp-for="phongban_id" asp-items="@ViewBag.Categories" class="form-select">
+                    </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
