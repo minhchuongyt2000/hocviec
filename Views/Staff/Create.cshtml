@@ -1,51 +1,46 @@
-@model Models.NhanVien
+@model hocviec.Models.nhanvien
 
 @{
     ViewData["Title"] = "Create";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h4>Nhân Viên</h4>
 <hr />
-        <form asp-action="Create" onsubmit="return JqueryPost(this);" autocomplete="off" class="row g-3">
+        <form asp-action="Create" autocomplete="off" class="row g-3">
             <div asp-validation-summary="ModelOnly" class="text-danger mt-2"></div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label asp-for="name" class="control-label"></label>
-                        <input asp-for="name" class="form-control" name="Name" id="Name"/>
-                        <span asp-validation-for="name" class="text-danger mt-2"></span>
+                        <label asp-for="ten" class="control-label">Tên</label>
+                        <input asp-for="ten" class="form-control" name="ten" id="ten"/>
+                        <span asp-validation-for="ten" class="text-danger mt-2"></span>
                     </div>
                 </div>
                 <div class="col-md-6">
                      <div class="form-group">
-                        <label asp-for="personposition" class="control-label"></label>
-                        <input asp-for="personposition" class="form-control" name="Personposition" id="Personposition"/>
-                        <span asp-validation-for="personposition" class="text-danger mt-2"></span>
+                        <label asp-for="chucvu" class="control-label">Chức Vụ</label>
+                        <input asp-for="chucvu" class="form-control" name="Chucvu" id="Chucvu"/>
+                        <span asp-validation-for="chucvu" class="text-danger mt-2"></span>
                      </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label asp-for="birth" class="control-label"></label>
-                        <input asp-for="birth" class="form-control" name="Birth" id="Birth" />
-                        <span asp-validation-for="birth" class="text-danger mt-2"></span>
+                        <label asp-for="ngaysinh" class="control-label">Ngày Sinh</label>
+                        <input asp-for="ngaysinh" class="form-control" name="Ngaysinh" id="Ngaysinh" />
+                        <span asp-validation-for="ngaysinh" class="text-danger mt-2"></span>
                     </div>  
                 </div>
                <div class="col-md-6">
                     <div class="form-group">
-                        <label asp-for="phonenumber" class="control-label"></label>
-                        <input asp-for="phonenumber" class="form-control" name="Phonenumber" id="Phonenumber" />
-                        <span asp-validation-for="phonenumber" class="text-danger mt-2"></span>
+                        <label asp-for="sdt" class="control-label">Số Điện Thoại</label>
+                        <input asp-for="sdt" class="form-control" name="Sdt" id="Sdt" />
+                        <span asp-validation-for="sdt" class="text-danger mt-2"></span>
                     </div>
                 </div>
             <div class="form-group">
-                <label asp-for="local" class="control-label"></label>
-                <input asp-for="local" class="form-control" name="Local" id="Local"/>
-                <span asp-validation-for="local" class="text-danger mt-2"></span>
-            </div>
-             <div class="form-group">
-                <label asp-for="phongban_id" class="control-label">Department</label>
-                  <select asp-for="phongban_id" asp-items="@ViewBag.Categories" class="form-select">
-                    </select>
-            </div>
+                <label asp-for="diachi" class="control-label">Địa Chỉ</label>
+                <input asp-for="diachi" class="form-control" name="Diachi" id="Diachi"/>
+                <span asp-validation-for="diachi" class="text-danger mt-2"></span>
+            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary"/>
                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

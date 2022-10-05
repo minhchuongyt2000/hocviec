@@ -8,13 +8,14 @@
 <div class="container py-2">
     <div class="row align-items-center">
         <div class="col-3">
-            <a class="btn btn-success" onclick="showpopup('@Url.Action("Create","Staff",null,Context.Request.Scheme)','Create')">CREATE NEW</a>
+            <a class="btn btn-primary" href="~/Staff/Create">THÊM MỚI</a>
+            @* <a class="btn btn-primary" onclick="showpopup('@Url.Action("Create","Staff",null,Context.Request.Scheme)','Create')">THÊM MỚI</a> *@
             <a class="btn fs-3" asp-action="ExportFileExcel" asp-controller="Staff" title="Export File Excells"><i class="fa-solid fa-file-export"></i></a>
             </div>
          <div class="col-8 me-2">
             <div class="input-group">
                 <label class="input-group-text">Tìm Kiếm</label>
-                <input type="text" class="form-control offset-1" value="@ViewBag.keyword" id="searchkey" placeholder="nhập tên học địa chỉ người cần tìm"/>
+                <input type="text" class="form-control offset-1" value="@ViewBag.keyword" id="searchkey" placeholder="nhập tên hoặc địa chỉ người cần tìm"/>
                 <div class="form-group">
                 <select class="form-select offset-2" id="ViewOption">
                 </select>
@@ -30,34 +31,37 @@
     <thead class="table-dark">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.id)
+                @Html.DisplayName("Mã NV")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ten)
+                @Html.DisplayName("Tên")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ngaysinh)
+                @Html.DisplayName("Ngày Sinh")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.sdt)
+                @Html.DisplayName("Số ĐT")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.diachi)
+                @Html.DisplayName("Địa Chỉ")
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.chucvu)
+                @Html.DisplayName("Chức Vụ")
+            </th>
+            <th>
+                @Html.DisplayName("Thao Tác")
             </th>
             <th></th>
         </tr>
     </thead>
         @* <tbody id="view">
         @await Html.PartialAsync("_viewall")
-        </tbody> *@
+        </tbody>
         <tfoot>
             <tr>
                 <td colspan="7" id="pagination">
                 </td>
             </tr>
-        </tfoot>
+        </tfoot> *@
     </table>
 </div>

@@ -21,9 +21,9 @@
                 @Html.DisplayFor(modelItem => item.chucvu)
             </td>
             <td class="text-center"> 
-                <a class="btn  btn-primary me-3" onclick="showpopup('@Url.Action("Edit","Staff",new {Id = item.id},Context.Request.Scheme)','Edit')"><i class="fa-solid fa-file-pen me-2"></i>EDIT</a>
+                <a class="btn  btn-primary me-3"><i class="fa-solid fa-file-pen me-2"></i>EDIT</a>
                
-                    <a class="btn btn-danger" onclick="showpopup('@Url.Action("Delete","Staff",new {Id = item.id},Context.Request.Scheme)','Delete')"><i class="fa-solid fa-trash-can me-2"></i>DELETE</a>
+                    <a class="btn btn-danger" ><i class="fa-solid fa-trash-can me-2"></i>DELETE</a>
             </td>
         </tr>
         }
