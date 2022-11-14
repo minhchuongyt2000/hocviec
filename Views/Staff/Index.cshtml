@@ -3,14 +3,13 @@
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 <h1 class="display-4">Index</h1>
 <div class="container py-2">
     <div class="row align-items-center">
         <div class="col-3">
             <a class="btn btn-primary" href="~/Staff/Create">THÊM MỚI</a>
             @* <a class="btn btn-primary" onclick="showpopup('@Url.Action("Create","Staff",null,Context.Request.Scheme)','Create')">THÊM MỚI</a> *@
-            <a class="btn fs-3" asp-action="ExportFileExcel" asp-controller="Staff" title="Export File Excells"><i class="fa-solid fa-file-export"></i></a>
+            <a class="btn fs-3" asp-action="Index" asp-controller="Staff" title="Export File Excells"><i class="fa-solid fa-file-export"></i></a>
             </div>
          <div class="col-8 me-2">
             <div class="input-group">
@@ -56,12 +55,39 @@
     </thead>
         @* <tbody id="view">
         @await Html.PartialAsync("_viewall")
-        </tbody>
+        </tbody> *@
+         @foreach (var item in Model) {
+        <tr style="line-height: 2.5rem;">
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ngaysinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sdt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.diachi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.chucvu)
+            </td>
+            <td class="text-center"> 
+                <a class="btn  btn-primary me-3" href="~/Staff/Edit"><i class="fa-solid fa-file-pen me-2" ></i>EDIT</a>
+               
+                    <a class="btn btn-danger" href="~/Staff/Delete"><i class="fa-solid fa-trash-can me-2" ></i>DELETE</a>
+            </td>
+        </tr>
+        }
         <tfoot>
             <tr>
                 <td colspan="7" id="pagination">
                 </td>
             </tr>
-        </tfoot> *@
+        </tfoot>
     </table>
 </div>
