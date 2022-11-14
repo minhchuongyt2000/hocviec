@@ -3,6 +3,7 @@ using hocviec.Models;
 using System.Data;
 using System.Drawing;
 using System.Globalization;
+using System.Text.Json;
 namespace hocviec.Controllers;
 public class StaffController : Controller
 {
@@ -20,7 +21,21 @@ public class StaffController : Controller
 [HttpGet]
 public ActionResult Index()
         {
-            return View();
+       List<nhanvien> a=new List<nhanvien>();
+       DateTime aDateTime = Convert.ToDateTime("1/1/1990");
+       nhanvien nhanvien1=new nhanvien("NV-0001", "Chuong",aDateTime, "0913767112", "NgheAn", "TruongPhong", 5);
+       nhanvien nhanvien2=new nhanvien("NV-0002", "Cuong",aDateTime , "0983868005", "HaNoi", "NhanVien", 2);
+       nhanvien nhanvien3=new nhanvien("NV-0003", "Chung",aDateTime , "0984560892", "HaiPhong", "NhanVien", 2);
+       nhanvien nhanvien4=new nhanvien("NV-0004", "Trang",aDateTime , "017772888", "NgheAn", "NhanVien", 2);
+       nhanvien nhanvien5=new nhanvien("NV-0005", "Truong",aDateTime , "038389000", "NgheAn", "NhanVien", 2);
+       a.Add(nhanvien1);
+       a.Add(nhanvien2);
+       a.Add(nhanvien3);
+       a.Add(nhanvien4);
+       a.Add(nhanvien5);
+    string json = JsonSerializer.Serialize(a);
+       HttpContext.Session.SetString("list", json);
+            return View(a);
         }
 
 [HttpGet]
@@ -30,9 +45,17 @@ public ActionResult Create()
         }
 
 [HttpPost]
-public ActionResult Create(int a)
+[ValidateAntiForgeryToken]
+public ActionResult Create(nhanvien nhanVien)
         {
-            return View();
+           var json= HttpContext.Session.GetString("list");
+            System.Console.WriteLine(json);
+          List<nhanvien> list=JsonSerializer.Deserialize<List<nhanvien>>(json);
+      
+           if(ModelState.IsValid){
+                list.Add(nhanVien);
+           }
+            return View("Index");
         }
 
 [HttpGet]

@@ -4,15 +4,18 @@ namespace hocviec.Models
 {
     public class nhanvien
     {
-        [RegularExpression(@"^\(NV-)([0-9]{4})$")]
+        // [RegularExpression(@"^\(NV-)([0-9]{4})$")]
         public string id { get; set; }
         public string ten { get; set; }
         public DateTime ngaysinh { get; set; }
-        [RegularExpression(@"/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/")]
+        // [RegularExpression(@"/^(0?)(3[2-9]|5[6|8|9]|7[0|6-9]|8[0-6|8|9]|9[0-4|6-9])[0-9]{7}$/")]
         public string sdt { get; set; }
         public string diachi { get; set; }
         public string chucvu { get; set; }
         public int tulich { get; set; }
+
+        public nhanvien(){}
+
         public nhanvien(string id, string ten, DateTime ngaysinh, string sdt, string diachi, string chucvu, int tulich)
         {
             this.id=id;
